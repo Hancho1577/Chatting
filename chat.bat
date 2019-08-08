@@ -1,5 +1,5 @@
 @echo off
-title 배치파일 채팅1.0V
+title 배치파일 채팅1.1V
 color F
 :main
 if not exist C:\hanchochat goto make
@@ -104,9 +104,9 @@ goto main2
 :chatc
 cls
 echo 신청할분의 이름을 입력해주세요.
-echo 뒤로가기:1
+echo 뒤로가기:/q
 set /p ccname=이름:
-if %ccname%==1 goto hello
+if %ccname%==/q goto hello
 if not exist C:\hanchochat\%ccname% goto errro
 echo %ccname%>>C:\hanchochat\%name%\list.txt
 echo %name%>>C:\hanchochat\%ccname%\list.txt
@@ -114,7 +114,7 @@ echo 완료
 timeout /5 3
 goto hello
 :errro
-echo 존재하지x 유저입니다.
+echo 존재하지 않는 유저입니다. 이름을 옳바르게 입력했는지 확인하세요.
 timeout /t 5
 goto chatc
 
@@ -146,11 +146,11 @@ findstr /b b C:\hanchochat\%name%\list.txt
 findstr /b n C:\hanchochat\%name%\list.txt
 findstr /b m C:\hanchochat\%name%\list.txt
 echo.
-echo 뒤로가기:1
+echo 뒤로가기:/q
 echo 채팅하고 싶은분의 이름을 입력하여주세요.
 echo.
 set /p choice=이름:
-if %choice%==1 goto hello
+if %choice%==/q goto hello
 goto chatgo
 
 :chatgo
@@ -159,10 +159,10 @@ if not exist C:\hanchochat\%name%\%choice%.txt goto chatgo2
 findstr /b [ C:\hanchochat\%name%\%choice%.txt
 echo.
 echo.
-echo 뒤로가기:back1 채팅클리어:12341
+echo 뒤로가기:/q 채팅클리어:/clear
 set /p abou=답장:
-if %abou%==back1 goto chatlist
-if %abou%==12341 echo .>C:\hanchochat\%name%\%choice%.txt
+if %abou%==/q goto chatlist
+if %abou%==/clear echo .>C:\hanchochat\%name%\%choice%.txt
 set abou = %abou: 씨=%
 echo [나]-%abou%>>C:\hanchochat\%name%\%choice%.txt
 echo [%name%]-%abou%>>C:\hanchochat\%choice%\%name%.txt
@@ -171,4 +171,4 @@ goto chatgo
 :chatgo2
 echo .>>C:\hanchochat\%name%\%choice%.txt
 echo .>>C:\hanchochat\%choice%\%name%.txt
-goot chatgo
+goto chatgo
