@@ -161,8 +161,8 @@ echo.
 echo.
 echo 뒤로가기:/q 채팅클리어:/clear
 set /p abou=답장:
-if %abou%==/q goto chatlist
-if %abou%==/clear echo .>C:\hanchochat\%name%\%choice%.txt
+if "%abou%"=="/q" goto chatlist
+if "%abou%"=="/clear" echo .>C:\hanchochat\%name%\%choice%.txt
 set abou = %abou: 씨=%
 echo [나]-%abou%>>C:\hanchochat\%name%\%choice%.txt
 echo [%name%]-%abou%>>C:\hanchochat\%choice%\%name%.txt
