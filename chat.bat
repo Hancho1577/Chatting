@@ -1,5 +1,6 @@
 @echo off
-title 배치파일 채팅1.1V
+title 배치파일 채팅
+C:
 color F
 :main
 if not exist C:\hanchochat goto make
