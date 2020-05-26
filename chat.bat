@@ -16,8 +16,8 @@ cd/
 cd C:\hanchochat
 cls
 echo -----------------
-echo 1.로그인하기
-echo 2.가입하기
+echo 1. 로그인하기
+echo 2. 가입하기
 echo -----------------
 echo.
 set /p type=번호:
